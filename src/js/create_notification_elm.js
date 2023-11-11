@@ -7,7 +7,7 @@ const qSel = (s, e) => e.querySelector(s)
 
 const createNotificationElm = (template, data) => {
   const clone = template.content.cloneNode(true)
-  const {id, notificationType, user, action, group, isRead, commentedPicture, post, timestamp, type, userAvatar, message} = data
+  const {id, notificationType, user, action, group, isRead, commentedPicture, post, timestamp, userAvatar, message} = data
 
   const $avatar = qSel('.avatar__img', clone)
   const $user = qSel('.user', clone)
@@ -20,24 +20,35 @@ const createNotificationElm = (template, data) => {
   $avatar.src = getImageUrl(url, collectionID, id, userAvatar)  
   $user.textContent = user
   $action.textContent = action
-  $timestamp.textContent = timestamp  
+  $timestamp.textContent = timestamp
+  $box.dataset.isread = !isRead ? '0' : '1'  
 
   if (notificationType === 'reactions' || notificationType === 'groupActivities') {
     const $complement = document.createElement('SPAN')
     $complement.textContent = `${group}${post}`
-    $spans.append($complement)
-    
-  } 
+    $complement.classList.add(`${group !== '' ? 'group' : 'post'}`)
+    $spans.append($complement)    
+  }
+
   if (notificationType === 'messages') {
     const $message =  document.createElement('P')
     $message.textContent = message  
     $box.append($message)
-  } 
+  }
+
   if (notificationType === 'comments') {
     const $commentedPicture =  document.createElement('IMG')
+    $commentedPicture.classList.add('commented-picture')
     $commentedPicture.src = getImageUrl(url, collectionID, id, commentedPicture)
     $row.append($commentedPicture)
   }
+
+  if (parseInt($box.dataset.isread) !== 1) {
+
+    $box.classList.add('notification__box--no-read')
+    const $point = clone.querySelector('.notifications__spans').lastElementChild
+    $point.classList.add('point')
+  } 
 
   return clone
 }

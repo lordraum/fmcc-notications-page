@@ -9,6 +9,7 @@ const renderNotifications = async (template, parent) => {
   } catch (error) {
     console.error('Error fetching data:', error);
   }
+  parent.click()
 };
 
 export default renderNotifications;

@@ -11,37 +11,39 @@
       <div class="nots-status">
         <div class="col-1">
           <span class="nots-status__title">Notifications</span>
-          <span class="nots-status__count nots-status__count--hide" data-countnots="0">3</span>
+          <span class="nots-status__count nots-status__count--hide" id="count-notifications"></span>
         </div>
         <div class="col-2">
           <span class="nots-status__is-read-all" data-allread="0">Mark all as read</span>
         </div>
       </div>
       <!--  -->
-      <section class="notifications" id="notifications">
-        <template id="notification-template">
-          <article class="notification">
-            <div class="notification__box">
-              <div class="avatar">
-                <img src="" alt="user image" class="avatar__img">
-              </div>
-              <div class="content content--is-read" data-isread="0">
-                <div class="content__row-01">
-                  <div class="notifications__spans">
-                    <span class="user"></span>
-                    <span class="action"></span>
-                  </div>
-                </div>
-                <div class="content__row-02">
-                  <span class="timestamp"></span>
-                </div>
-              </div>
-            </article>
-          </div>
-        </template>
-      </section>
+      <section class="notifications" id="notifications"></section>
       <!--  -->
     </main>
+    <!-- Notification template -->
+    <template id="notification-template">
+      <article class="notification" id="notification">
+        <div class="notification__box">
+          <div class="notification__basic">
+            <div class="avatar">
+              <img src="" alt="user image" class="avatar__img">
+            </div>
+            <div class="content content--is-read" data-isread="0">
+              <div class="content__row-01">
+                <div class="notifications__spans">
+                  <span class="user"></span>
+                  <span class="action"></span>
+                </div>
+              </div>
+              <div class="content__row-02">
+                <span class="timestamp"></span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </article>
+    </template>
     <script type="module" src="./src/js/main.js"></script>
   </body>
 </html>

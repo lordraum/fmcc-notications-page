@@ -1,13 +1,148 @@
+@font-face {
+  font-family: "jakarta";
+  src: url("../assets/fonts/PlusJakartaSans-VariableFont_wght.ttf")
+    format("truetype");
+}
+
 :root {
   color-scheme: light dark;
-  color: rgba(255, 255, 255, 0.87);
-  background-color: #242424;
 
   font-synthesis: none;
   text-rendering: optimizeLegibility;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   -webkit-text-size-adjust: 100%;
+
+  /* custom properties */
+
+  --clr-ttl: rgb(79, 128, 228);
+  --clr-txt: rgb(248, 243, 243);
+  --clr-txt-acc: rgb(215, 223, 238);
+  --clr-lgt: rgba(248, 243, 243, 0.5);
+  --clr-grp: #1847ad;
+  --clr-pnt: #d45250;
+  /* --clr-cnt */
+
+  --bg-body: rgb(36, 40, 48);
+  --bg-cnt: #052874;
+  --bg-nrd: rgb(42, 51, 70, 0.4);
+}
+
+/* global */
+
+body {
+  font-family: "jakarta", "sans-serif";
+  background-color: var(--bg-body);
+  font-weight: 500;
+  color: var(--clr-txt);
+}
+
+/* mobile */
+
+.page {
+  width: 90%;
+  margin: 2rem auto;
+}
+
+.nots-status {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 3rem;
+}
+
+.nots-status__title {
+  font-size: 1.25rem;
+  margin-right: 0.5rem;
+  color: var(--clr-ttl);
+  font-weight: 800;
+}
+
+.nots-status__count {
+  background-color: var(--bg-cnt);
+  width: 1.8rem;
+  aspect-ratio: 1 / 1;
+  display: inline-block;
+  text-align: center;
+  line-height: 1.7rem;
+  border-radius: 5px;
+}
+
+.notifications {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+}
+
+.notification__box {
+  border-radius: 5px;
+  padding: 1rem;
+}
+
+.notification__box--no-read {
+  background-color: var(--bg-nrd);
+}
+
+.notification__basic {
+  display: flex;
+  gap: 0.5rem;
+}
+
+.avatar__img,
+.commented-picture {
+  width: 2.75rem;
+  height: 2.75rem;
+}
+
+.content__row-01 {
+  display: flex;
+}
+
+.notifications__spans {
+  line-height: 1.4rem;
+  margin-bottom: 0.25rem;
+}
+
+.user {
+  color: var(--clr-ttl);
+  margin-right: 0.25rem;
+  font-weight: 800;
+}
+
+.group {
+  color: var(--clr-grp);
+  font-weight: 800;
+}
+
+.post {
+  color: var(--clr-txt-acc);
+}
+
+.point::after {
+  content: "";
+  position: relative;
+  width: 0.5rem;
+  aspect-ratio: 1 / 1;
+  background-color: var(--clr-pnt);
+  border-radius: 50%;
+  display: inline-block;
+  left: 0.5rem;
+  bottom: 0.1rem;
+}
+
+.commented-picture {
+  border-radius: 3px;
+}
+
+.timestamp {
+  color: var(--clr-lgt);
+}
+
+.notification__box p {
+  border: 1px solid var(--clr-lgt);
+  padding: 0.75rem;
+  line-height: 1.3rem;
+  margin-inline-start: 3.25rem;
+  border-radius: 3px;
 }
 
 @media (prefers-color-scheme: light) {
