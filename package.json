@@ -6,13 +6,16 @@
   "scripts": {
     "dev": "vite --host",
     "build": "vite build",
-    "preview": "vite preview --host"
+    "preview": "vite preview --host",
+    "deploy": "gh-pages -d dist"
   },
   "devDependencies": {
+    "gh-pages": "6.0.0",
     "normalize.css": "8.0.1",
     "standard": "17.1.0",
     "vite": "^4.4.5"
   },
   "eslintConfig": {
-    "extends": "standard"}
+    "extends": "standard"
+  }
 }

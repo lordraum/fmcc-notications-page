@@ -21,33 +21,59 @@
   --clr-lgt: rgba(248, 243, 243, 0.5);
   --clr-grp: #1847ad;
   --clr-pnt: #d45250;
-  /* --clr-cnt */
+  --clr-cnt: rgb(248, 243, 243);
 
-  --bg-body: rgb(36, 40, 48);
+  --bg-body: rgb(41, 48, 59);
+  --bg-body-mbl: var(--bg-main);
+  --bg-main: rgb(36, 40, 48);
+  --bg-main: rgb(36, 40, 48);
   --bg-cnt: #052874;
   --bg-nrd: rgb(42, 51, 70, 0.4);
+  --bg-not-hov: rgb(42, 51, 70, 0.9);
 }
 
-/* global */
+/* light theme */
+
+@media (prefers-color-scheme: light) {
+  :root {
+    --clr-txt: rgba(149, 153, 162, 255);
+    --clr-ttl: rgba(39, 40, 48, 255);
+    --clr-txt-acc: rgba(101, 106, 118, 255);
+    --clr-lgt: rgba(194, 200, 204, 255);
+    --clr-grp: #1847ad;
+
+    --bg-body: rgba(237, 241, 248, 0.75);
+    --bg-main: rgb(255, 255, 255);
+    --bg-nrd: rgba(235, 243, 248, 0.75);
+    --bg-not-hov: rgb(228, 238, 249);
+  }
+}
+
+* {
+  box-sizing: border-box;
+}
 
 body {
   font-family: "jakarta", "sans-serif";
+  height: max-content;
   background-color: var(--bg-body);
   font-weight: 500;
   color: var(--clr-txt);
+  padding-block: min(5%, 3rem);
 }
 
-/* mobile */
-
 .page {
-  width: min(90%, 650px);
-  margin: 2rem auto;
+  width: min(100%, 650px);
+  margin: auto;
+  background-color: var(--bg-main);
+  padding: 1rem;
+  border-radius: 5px;
 }
 
 .nots-status {
   display: flex;
   justify-content: space-between;
-  margin-bottom: 3rem;
+  margin-bottom: 2rem;
 }
 
 .nots-status__title {
@@ -58,13 +84,14 @@ body {
 }
 
 .nots-status__count {
-  background-color: var(--bg-cnt);
+  display: inline-block;
   width: 1.8rem;
   aspect-ratio: 1 / 1;
-  display: inline-block;
-  text-align: center;
   line-height: 1.7rem;
+  text-align: center;
   border-radius: 5px;
+  background-color: var(--bg-cnt);
+  color: var(--clr-cnt);
 }
 
 .notifications {
@@ -74,6 +101,7 @@ body {
 }
 
 .notification__box {
+  position: relative;
   border-radius: 5px;
   padding: 1rem;
   transition: all 0.3s;
@@ -106,12 +134,17 @@ body {
 .user {
   color: var(--clr-ttl);
   margin-right: 0.25rem;
+  transition: 0.3s;
+}
+
+.user,
+.group {
   font-weight: 800;
 }
 
-.group {
+.group,
+.user:hover {
   color: var(--clr-grp);
-  font-weight: 800;
 }
 
 .post {
@@ -146,15 +179,32 @@ body {
   border-radius: 3px;
 }
 
-@media (prefers-color-scheme: light) {
-  :root {
-    color: #213547;
-    background-color: #ffffff;
+.notification__box p:hover {
+  background-color: var(--bg-not-hov);
+}
+
+.nots-status__is-read-all,
+.notification p,
+.user,
+.post,
+.group,
+img {
+  cursor: pointer;
+}
+
+@media (width < 441px) {
+  body {
+    background-color: var(--bg-body-mbl);
   }
-  a:hover {
-    color: #747bff;
+}
+
+@media (width > 500px) {
+  body {
+    background-color: var(--bg-body-mbl);
   }
-  button {
-    background-color: #f9f9f9;
+
+  .commented-picture {
+    position: absolute;
+    right: 0.75rem;
   }
 }
