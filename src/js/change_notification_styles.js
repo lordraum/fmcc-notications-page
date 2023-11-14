@@ -7,7 +7,7 @@ const changeNotificationStyles = (e) => {
     $point.classList.remove('point')
     $notification.classList.remove('notification__box--no-read')
     $notification.dataset.isread = '1'
-  } 
+  }
 }
 
 export default changeNotificationStyles

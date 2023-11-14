@@ -40,7 +40,7 @@ body {
 /* mobile */
 
 .page {
-  width: 90%;
+  width: min(90%, 650px);
   margin: 2rem auto;
 }
 
@@ -76,6 +76,7 @@ body {
 .notification__box {
   border-radius: 5px;
   padding: 1rem;
+  transition: all 0.3s;
 }
 
 .notification__box--no-read {

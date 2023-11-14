@@ -1,15 +1,15 @@
-import getData from "./getData"
-import createNotificationElm from "./create_notification_elm";
+import getData from './getData'
+import createNotificationElm from './create_notification_elm'
 
 const renderNotifications = async (template, parent) => {
   try {
-    const {items} = await getData();
-    items.forEach(item => parent.append(createNotificationElm(template, item))      
+    const { items } = await getData()
+    items.forEach(item => parent.append(createNotificationElm(template, item))
     )
   } catch (error) {
-    console.error('Error fetching data:', error);
+    console.error('Error fetching data:', error)
   }
   parent.click()
-};
+}
 
-export default renderNotifications;
+export default renderNotifications
