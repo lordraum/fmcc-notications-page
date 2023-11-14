@@ -1,0 +1,51 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <link rel="icon" type="image/png" href="/fmcc-notifications-page/favicon-32x32.png">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Notifications page main</title>
+    <script type="module" crossorigin src="/fmcc-notifications-page/assets/index-b73ef9b7.js"></script>
+    <link rel="stylesheet" href="/fmcc-notifications-page/assets/index-428c10f7.css">
+  </head>
+  <body>
+    <main class="page">
+      <div class="nots-status">
+        <div class="col-1">
+          <span class="nots-status__title">Notifications</span>
+          <span class="nots-status__count nots-status__count--hide" id="count-notifications"></span>
+        </div>
+        <div class="col-2">
+          <span class="nots-status__is-read-all" id="mark-all-as-read" data-allread="0">Mark all as read</span>
+        </div>
+      </div>
+      <!--  -->
+      <section class="notifications" id="notifications"></section>
+      <!--  -->
+    </main>
+    <!-- Notification template -->
+    <template id="notification-template">
+      <article class="notification" id="notification">
+        <div class="notification__box">
+          <div class="notification__basic">
+            <div class="avatar">
+              <img src="" alt="user image" class="avatar__img">
+            </div>
+            <div class="content content--is-read" data-isread="0">
+              <div class="content__row-01">
+                <div class="notifications__spans">
+                  <span class="user"></span>
+                  <span class="action"></span>
+                </div>
+              </div>
+              <div class="content__row-02">
+                <span class="timestamp"></span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </article>
+    </template>
+    
+  </body>
+</html>
