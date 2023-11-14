@@ -192,7 +192,7 @@ img {
   cursor: pointer;
 }
 
-@media (width < 441px) {
+@media (width < 500px) {
   body {
     background-color: var(--bg-body-mbl);
   }
